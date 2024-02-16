@@ -9,7 +9,7 @@ import com.bookworm.entities.Customer;
 
 public interface CustomerManager {
 	void addCustomer(Customer c);
-	boolean loginUser(String email, String password);
+	Customer loginUser(String email, String password);
 	
 	/*List<Product> getProducts();
 	void delete(int id);
