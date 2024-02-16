@@ -12,7 +12,7 @@ public class InvoiceDetail {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int invoice_detail_id;
+	private long invoice_detail_id;
 	@ManyToOne
     @JoinColumn(name = "invoice_id")
 	private Invoice invoice_id;
@@ -26,10 +26,10 @@ public class InvoiceDetail {
 	private int rent_days;
 	
 	
-	public int getInvoice_detail_id() {
+	public long getInvoice_detail_id() {
 		return invoice_detail_id;
 	}
-	public void setInvoice_detail_id(int invoice_detail_id) {
+	public void setInvoice_detail_id(long invoice_detail_id) {
 		this.invoice_detail_id = invoice_detail_id;
 	}
 	public Invoice getInvoice_id() {

@@ -15,18 +15,18 @@ public class ProductBenMaster {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int prodBenId;
+    private long prodBenId;
     @ManyToOne(fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
     @JoinColumn(name = "benId")
     private BeneficiaryMaster  ProdBen_ben_id ;
-    @OneToOne(fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
     @JoinColumn(name = "prodBenProductId")
     private Product  ProdBen_product_id;
     private double  ProdBen_percentage ;
-	public int getProdBenId() {
+	public long getProdBenId() {
 		return prodBenId;
 	}
-	public void setProdBenId(int prodBenId) {
+	public void setProdBenId(long prodBenId) {
 		this.prodBenId = prodBenId;
 	}
 	public BeneficiaryMaster getProdBen_ben_id() {
@@ -52,12 +52,7 @@ public class ProductBenMaster {
 		return "ProductBenMaster [prodBenId=" + prodBenId + ", ProdBen_ben_id=" + ProdBen_ben_id
 				+ ", ProdBen_product_id=" + ProdBen_product_id + ", ProdBen_percentage=" + ProdBen_percentage + "]";
 	}
-   
-    
-    
-    
-    
-	}
+}
     
     
     
