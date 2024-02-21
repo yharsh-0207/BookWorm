@@ -20,7 +20,14 @@ public class BeneficiaryMaster {
     private String benAccNo;
     private String benAccType;
     private String benPAN;
-    public long getBenId() {
+    private double totalEarning;
+    public double getTotalEarning() {
+		return totalEarning;
+	}
+	public void setTotalEarning(double totalEarning) {
+		this.totalEarning = totalEarning;
+	}
+	public long getBenId() {
 		return benId;
 	}
 	public void setBenId(long benId) {

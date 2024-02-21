@@ -1,35 +1,38 @@
 package com.bookworm.entities;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class InvoiceDetail {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int invoice_detail_id;
+	private long invoice_detail_id;
 	@ManyToOne
-    @JoinColumn(name = "invoice_id")
-	private Invoice invoice_id;
-	@ManyToOne
-    @JoinColumn(name = "product_id")
-	private Product product_id;
-	private int quantity;
+    @JoinColumn(name = "invoice_Id")
+    private Invoice invoice_id;
+    @ManyToOne
+    @JoinColumn(name = "product_Id")
+    private Product product_id;
 	private double base_price;
 	private double sale_price;
 	private char transaction_type;
 	private int rent_days;
 	
 	
-	public int getInvoice_detail_id() {
+	public long getInvoice_detail_id() {
 		return invoice_detail_id;
 	}
-	public void setInvoice_detail_id(int invoice_detail_id) {
+	public void setInvoice_detail_id(long invoice_detail_id) {
 		this.invoice_detail_id = invoice_detail_id;
 	}
 	public Invoice getInvoice_id() {
@@ -43,12 +46,6 @@ public class InvoiceDetail {
 	}
 	public void setProduct_id(Product product_id) {
 		this.product_id = product_id;
-	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 	public double getBase_price() {
 		return base_price;

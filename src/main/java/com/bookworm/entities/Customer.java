@@ -13,7 +13,7 @@ public class Customer {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	private int customer_id;
+	private long customer_id;
 	private String first_name;
 	private String last_name;
 	private String email;
@@ -32,10 +32,10 @@ public class Customer {
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int getcustomer_id() {
+	public long getcustomer_id() {
 		return customer_id;
 	}
-	public void setcustomer_id(int customer_id) {
+	public void setcustomer_id(long customer_id) {
 		this.customer_id = customer_id;
 	}
 	public String getfirst_name() {

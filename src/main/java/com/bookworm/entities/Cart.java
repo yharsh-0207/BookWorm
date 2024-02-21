@@ -1,11 +1,14 @@
 package com.bookworm.entities;
 
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -14,8 +17,8 @@ public class Cart {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int cartId;
 	
-@OneToOne(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
-private Product product;
+@OneToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+private List<Product> product;
 @OneToOne(fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
 private Customer customer;
 private int quantity;
@@ -28,10 +31,10 @@ public void setQuantity(int quantity) {
 	this.quantity = quantity;
 }
 
-public Product getProduct() {
+public List<Product> getProduct() {
 	return product;
 }
-public void setProduct(Product product) {
+public void setProduct(List<Product> product) {
 	this.product = product;
 }
 public Customer getCustomer() {

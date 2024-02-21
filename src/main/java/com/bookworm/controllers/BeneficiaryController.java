@@ -28,7 +28,7 @@ public class BeneficiaryController {
 		return beneficiaryManager.getAllBeneficiary();
 	}
 	@GetMapping("/getByBeneficiaryId/{id}")
-	public Optional<BeneficiaryMaster> getByBeneficiaryId(@PathVariable long id){
+	public BeneficiaryMaster getByBeneficiaryId(@PathVariable long id){
 		return beneficiaryManager.getByBeneficiaryId(id);
 	}
 	@PostMapping("/addBeneficiary")
