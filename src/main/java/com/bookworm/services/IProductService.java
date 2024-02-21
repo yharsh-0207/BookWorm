@@ -9,6 +9,8 @@ public interface IProductService {
 	
 	List<Product> getAllProducts();
 	
+	Product getProductById(long id);
+	
 	List<Product> getProductByType(long id);
 	
 	List<Product> getProductsByTypeandLang(long typeId, long lanId);

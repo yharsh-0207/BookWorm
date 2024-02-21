@@ -40,4 +40,9 @@ public class ProductService implements IProductService {
 		return productRepo.getByTypeIdandLangID(typeid, langId);
 	}
 
+	@Override
+	public Product getProductById(long id) {
+		return productRepo.getById(id);
+	}
+
 }

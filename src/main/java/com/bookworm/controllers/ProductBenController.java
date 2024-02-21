@@ -12,13 +12,4 @@ import com.bookworm.services.ProductBenService;
 @RestController
 public class ProductBenController 
 {
-	@Autowired
-	private ProductBenService productBenServices;
-
-   
-	@GetMapping("/getProducts")
-	public List<ProductBenMaster> getProducts()
-	{
-		return productBenServices.getByProduct();		
-	}
 }

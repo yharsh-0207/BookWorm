@@ -1,5 +1,6 @@
 package com.bookworm.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.CascadeType;
@@ -17,52 +18,46 @@ public class RoyaltyCalculation {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int royalty_calculation_id;
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "invoice_id")
-	private Invoice invoice_id;
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "ben_id")
-	private BeneficiaryMaster beneficiary_id;
-	private LocalDateTime royalty_calculation_date;
-	@ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_Id")
-	private Product product_id;
+	private long royalty_calculation_id;
+	private long invoice_id;
+	private long beneficiary_id;
+	private LocalDate royalty_calculation_date;
+	private long product_id;
 	private int quantity;
-	private char transaction_type;
+	private String transaction_type;
 	private double base_price;
 	private double sale_price;
 	private double royalty_on_base_price;
 	
 	
-	public int getRoyalty_calculation_id() {
+	public long getRoyalty_calculation_id() {
 		return royalty_calculation_id;
 	}
-	public void setRoyalty_calculation_id(int royalty_calculation_id) {
+	public void setRoyalty_calculation_id(long royalty_calculation_id) {
 		this.royalty_calculation_id = royalty_calculation_id;
 	}
-	public Invoice getInvoice_id() {
+	public long getInvoice_id() {
 		return invoice_id;
 	}
-	public void setInvoice_id(Invoice invoice_id) {
+	public void setInvoice_id(long invoice_id) {
 		this.invoice_id = invoice_id;
 	}
-	public BeneficiaryMaster getBeneficiary_id() {
+	public long getBeneficiary_id() {
 		return beneficiary_id;
 	}
-	public void setBeneficiary_id(BeneficiaryMaster beneficiary_id) {
+	public void setBeneficiary_id(long beneficiary_id) {
 		this.beneficiary_id = beneficiary_id;
 	}
-	public LocalDateTime getRoyalty_calculation_date() {
+	public LocalDate getRoyalty_calculation_date() {
 		return royalty_calculation_date;
 	}
-	public void setRoyalty_calculation_date(LocalDateTime royalty_calculation_date) {
-		this.royalty_calculation_date = royalty_calculation_date;
+	public void setRoyalty_calculation_date(LocalDate localDate) {
+		this.royalty_calculation_date = localDate;
 	}
-	public Product getProduct_id() {
+	public long getProduct_id() {
 		return product_id;
 	}
-	public void setProduct_id(Product product_id) {
+	public void setProduct_id(long product_id) {
 		this.product_id = product_id;
 	}
 	public int getQuantity() {
@@ -71,11 +66,11 @@ public class RoyaltyCalculation {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public char getTransaction_type() {
+	public String getTransaction_type() {
 		return transaction_type;
 	}
-	public void setTransaction_type(char transaction_type) {
-		this.transaction_type = transaction_type;
+	public void setTransaction_type(String string) {
+		this.transaction_type = string;
 	}
 	public double getBase_price() {
 		return base_price;

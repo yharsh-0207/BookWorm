@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bookworm.entities.Cart;
 import com.bookworm.entities.MyShelf;
 import com.bookworm.dao.MyShelfRepository;
 
@@ -16,9 +17,9 @@ public class MyShelfMnagerImpl implements MyShelfManager {
 	MyShelfRepository myShelfRepository;
 	
 	@Override
-	public Optional<MyShelf> getById(Long shelfId) {
+	public List<MyShelf> findallby() {
 		
-		return myShelfRepository.findById(shelfId);
+		return myShelfRepository.findAll();
 	}
 
 	@Override
@@ -32,5 +33,12 @@ public class MyShelfMnagerImpl implements MyShelfManager {
 		return myShelfRepository.save(shelf);
 	}
 
+	@Override
+	public List<MyShelf>geTransType(String tranType) {
+		// TODO Auto-generated method stub
+		return myShelfRepository.findBytranTypeStartsWith(tranType);
+	}
+
+	
 	
 }

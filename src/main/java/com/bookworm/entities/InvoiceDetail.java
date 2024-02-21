@@ -1,11 +1,15 @@
 package com.bookworm.entities;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class InvoiceDetail {
@@ -14,12 +18,11 @@ public class InvoiceDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long invoice_detail_id;
 	@ManyToOne
-    @JoinColumn(name = "invoice_id")
-	private Invoice invoice_id;
-	@ManyToOne
-    @JoinColumn(name = "product_id")
-	private Product product_id;
-	private int quantity;
+    @JoinColumn(name = "invoice_Id")
+    private Invoice invoice_id;
+    @ManyToOne
+    @JoinColumn(name = "product_Id")
+    private Product product_id;
 	private double base_price;
 	private double sale_price;
 	private char transaction_type;
@@ -43,12 +46,6 @@ public class InvoiceDetail {
 	}
 	public void setProduct_id(Product product_id) {
 		this.product_id = product_id;
-	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 	public double getBase_price() {
 		return base_price;

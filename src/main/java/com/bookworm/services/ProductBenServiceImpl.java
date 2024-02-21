@@ -13,13 +13,12 @@ import com.bookworm.entities.ProductBenMaster;
 public class ProductBenServiceImpl implements ProductBenService
 {
 	@Autowired
-	ProductBenRepository probenRepo;
+    ProductBenRepository probenRepo;
 
-	@Override
-	public List<ProductBenMaster> getByProduct() {
-		// TODO Auto-generated method stub
-		return probenRepo.findAll();
-	}
+    @Override
+    public List<ProductBenMaster> getByProduct(Long id) {
+        return probenRepo.findByProductId(id);
+    }
 	
 	
 }

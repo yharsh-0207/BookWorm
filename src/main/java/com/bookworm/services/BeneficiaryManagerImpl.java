@@ -21,8 +21,8 @@ public class BeneficiaryManagerImpl implements BeneficiaryManager{
 	}
 
 	@Override
-	public Optional<BeneficiaryMaster> getByBeneficiaryId(long id) {
-		return beneficiaryRepository.findById(id);
+	public BeneficiaryMaster getByBeneficiaryId(long id) {
+		return beneficiaryRepository.findByBenId(id);
 	}
 
 	@Override
@@ -38,8 +38,7 @@ public class BeneficiaryManagerImpl implements BeneficiaryManager{
 		try {
 			getBenMaster=beneficiaryRepository.findById(id);
 			BeneficiaryMaster ben=getBenMaster.get();
-			ben.setBenAccNo(benMaster.getBenAccNo());
-			ben.setBenName(benMaster.getBenName());
+			ben.setTotalEarning(benMaster.getTotalEarning());
 			beneficiaryRepository.save(ben);
 			return "updated";
 		}

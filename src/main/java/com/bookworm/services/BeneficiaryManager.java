@@ -8,7 +8,7 @@ import com.bookworm.entities.BeneficiaryMaster;
 public interface BeneficiaryManager {
 
 	List<BeneficiaryMaster> getAllBeneficiary();
-	Optional<BeneficiaryMaster> getByBeneficiaryId(long id);
+	BeneficiaryMaster getByBeneficiaryId(long id);
 	BeneficiaryMaster addBeneficiary(BeneficiaryMaster benMaster);
 	
 	String updateBeneficiary(long id ,BeneficiaryMaster benMaster );

@@ -7,7 +7,6 @@ import com.bookworm.entities.ProductBenMaster;
 
 public interface ProductBenService 
 {
-	public List<ProductBenMaster> getByProduct();
-	//ProductBenMaster findByProduct(Product product);
+	public List<ProductBenMaster> getByProduct(Long id);
 
 }

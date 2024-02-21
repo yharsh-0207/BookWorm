@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bookworm.dtos.InvoiceDto;
 import com.bookworm.entities.Invoice;
+import com.bookworm.entities.InvoiceDetail;
+import com.bookworm.services.InvoiceDetailService;
 import com.bookworm.services.InvoiceService;
 
 @RestController
@@ -23,6 +26,9 @@ public class InvoiceController {
 	
 	@Autowired
 	private InvoiceService inService;
+	
+	@Autowired
+	private InvoiceDetailService indtlService;
 	
 	@GetMapping(value="/api/getAllInvoice")
 	public List<Invoice> getAllInvoice()
@@ -37,8 +43,11 @@ public class InvoiceController {
 	}
 
 	@PostMapping(value="/api/addInvoice")
-	public void addInvoice(@RequestBody Invoice invoice) {
-		 inService.addInvoice(invoice);
+	public void addInvoice(@RequestBody InvoiceDto invoicedto) {
+		Invoice invoice = new Invoice();
+		InvoiceDetail invoicedtl = new InvoiceDetail();
+		indtlService.setInvoiceDetails(invoicedtl);
+		inService.addInvoice(invoice);
 	}
 	
 	@DeleteMapping("/api/delete/{id}")
